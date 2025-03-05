@@ -19,7 +19,7 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.owner}'s profile"
 
-
+# signal to create a profile whenever a user is created
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(owner=instance)
