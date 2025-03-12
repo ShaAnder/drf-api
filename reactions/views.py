@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from restful_tutorial.permissions import IsOwnerOrReadOnly
+from drf_api.permissions import IsOwnerOrReadOnly
 from reactions.models import Reaction
 from reactions.serializers import ReactionSerializer
 
