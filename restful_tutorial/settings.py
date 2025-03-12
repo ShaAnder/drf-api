@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'profiles',
     'posts',
     'comments',
+    'reactions',
+    'followers',
 ]
 
 MIDDLEWARE = [
