@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from settings import *
+from drf_api.settings import *
 
 @api_view()
 def root_route(request):
