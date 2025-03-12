@@ -72,12 +72,13 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
+    '.herokuapp.com',
+    'drf-social-media-api-2b8e2f3d56a6.herokuapp.com',
     '127.0.0.1:8000'
     'localhost',
     '127.0.0.1',
     '111.222.333.444',
     'mywebsite.example',
-    '.herokuapp.com',
 ]
 
 
