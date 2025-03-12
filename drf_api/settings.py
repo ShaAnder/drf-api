@@ -77,7 +77,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '111.222.333.444',
     'mywebsite.example',
-    os.environ.get('ALLOWED_HOSTS'),
+    '.herokuapp.com',
 ]
 
 
