@@ -74,6 +74,8 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     os.environ.get("CLIENT_ORIGIN"),
     os.environ.get("CLIENT_ORIGIN_DEV"),
+    "https://shaander-moments-project-2e3530d3b052.herokuapp.com",
+    "https://pleasantly-quick-seasnail.ngrok-free.app"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
