@@ -110,6 +110,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# CSRF Settings
+CSRF_COOKIE_SECURE = True  
+CSRF_COOKIE_SAMESITE = "None"  
+CSRF_COOKIE_HTTPONLY = False  
+
 CORS_ALLOWED_ORIGINS = [
     origin for origin in [
         os.environ.get('CLIENT_ORIGIN'),
