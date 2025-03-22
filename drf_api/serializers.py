@@ -12,7 +12,6 @@ class CurrentUserSerializer(UserDetailsSerializer):
         )
 
     def get_profile_image(self, obj):
-        request = self.context.get('request')
-        if obj.user_profile.image:  
-            return request.build_absolute_uri(obj.user_profile.image.url)
-        return None  
+        if obj.user_profile.image:
+            return obj.user_profile.image.url
+        return None
