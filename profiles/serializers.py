@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Profile
 from followers.models import Follower
+import os
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -10,7 +11,11 @@ class ProfileSerializer(serializers.ModelSerializer):
     posts_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
-    image = serializers.SerializerMethodField()
+    # Read-only: Show Cloudinary URL
+    image_url = serializers.ReadOnlyField(source='image.url')
+    # Write-only: Allow image uploads
+    image = serializers.ImageField(write_only=True, required=False)
+
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -25,15 +30,10 @@ class ProfileSerializer(serializers.ModelSerializer):
             return following.id if following else None
         return None
 
-    def get_image(self, obj):
-        if obj.image:
-            return obj.image.url
-        return None
-
     class Meta:
         model = Profile
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'content', 'image', 'is_owner', 'following_id',
-            'posts_count', 'followers_count', 'following_count', 'image'
+            'posts_count', 'followers_count', 'following_count', 'image', 'image_url'
         ]
