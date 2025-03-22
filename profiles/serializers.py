@@ -14,8 +14,12 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         if obj.image:
-            return obj.image.url  # Ensures full URL
-        return None
+            image_url = obj.image.url
+            if image_url.startswith("/"):  # Ensure relative URLs get prefixed
+                return f"https://res.cloudinary.com/dbqlgz0og{image_url}"
+            return image_url
+        return "https://res.cloudinary.com/dbqlgz0og/image/upload/v1741184873/gipldxaberkg5nt7rp9z.jpg"
+
 
     def get_is_owner(self, obj):
         request = self.context['request']
