@@ -121,13 +121,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CLOUDINARY_STORAGE = {
-    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),  
-    'api_key': os.environ.get('CLOUDINARY_API_KEY'),        
-    'api_secret': os.environ.get('CLOUDINARY_API_SECRET'),  
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 CORS_ALLOWED_ORIGINS = [
     origin for origin in [
         os.environ.get('CLIENT_ORIGIN'),
@@ -136,6 +129,13 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+CLOUDINARY_STORAGE = {
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),  
+    'api_key': os.environ.get('CLOUDINARY_API_KEY'),        
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET'),  
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 ROOT_URLCONF = 'drf_api.urls'
 
