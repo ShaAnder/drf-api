@@ -44,6 +44,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Disable email verification
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Dummy email backend
 
 REST_AUTH = {
     'USE_JWT': True,
@@ -77,7 +79,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.herokuapp.com',
-    os.environ.get('ALLOWED_HOST'),
+    os.environ.get('ALLOWED_HOSTS'),
 ]
 
 # Application definition
@@ -109,6 +111,7 @@ INSTALLED_APPS = [
     'followers',
 ]
 SITE_ID = 1
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
