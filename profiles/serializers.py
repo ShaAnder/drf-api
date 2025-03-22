@@ -29,6 +29,11 @@ class ProfileSerializer(serializers.ModelSerializer):
             ).first()
             return following.id if following else None
         return None
+    
+    def get_profile_image(self, obj):
+        if obj.user_profile.image:
+            return obj.user_profile.image.url
+        return None
 
     class Meta:
         model = Profile
