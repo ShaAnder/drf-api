@@ -19,7 +19,7 @@ class Post(models.Model):
         ('walden', 'Walden'), ('xpro2', 'X-pro II')
     ]
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
