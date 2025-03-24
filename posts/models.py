@@ -26,7 +26,8 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     image = CloudinaryField(
         'image',  
-        folder='profile_images',  
+        folder='post_images',  
+        default = ""
     )
 
     image_filter = models.CharField(max_length=32, choices=image_filter_choices, default='normal')
