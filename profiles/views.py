@@ -25,6 +25,7 @@ class ProfileList(generics.ListAPIView):
         'owner__following__followed',
         'owner__followed__owner',
     ]
+    
     ordering_fields = [
         'posts_count',
         'followers_count',
