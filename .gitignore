@@ -11,3 +11,6 @@ node_modules/
 !**/migrations
 !**/migrations/__init__.py
 db.sqlite3
+
+# ignore local error logs
+/logs

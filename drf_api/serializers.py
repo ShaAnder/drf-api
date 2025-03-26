@@ -12,6 +12,9 @@ class CurrentUserSerializer(UserDetailsSerializer):
         )
 
     def get_profile_image(self, obj):
-        if obj.user_profile.image:
-            return obj.user_profile.image.url
-        return None
+        image = obj.user_profile.image
+        # If image is a File/Image instance with a .url attribute, return that.
+        if hasattr(image, 'url'):
+            return image.url
+        # Otherwise, assume it's already a URL or a string.
+        return image
